@@ -1,0 +1,774 @@
+<title>Haseeb Mirza</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+
+<style>
+/* ── Tokens ── */
+:root {
+  --bg:        #0b0f1a;
+  --surface:   #111827;
+  --surface2:  #1a2236;
+  --border:    #1e2d45;
+  --accent:    #39d353;
+  --accent-dim:#39d35318;
+  --accent-mid:#39d35340;
+  --text:      #e2e8f4;
+  --text-2:    #8896b0;
+  --text-3:    #4a5872;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-inline: 24px;
+  padding-block: 0;
+}
+
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* ── Helpers ── */
+.wrap { max-width: 860px; margin-inline: auto; }
+
+/* ── Nav ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 18px;
+  margin-inline: -24px;
+  padding-inline: 24px;
+  background: rgba(11,15,26,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.nav-cursor {
+  display: inline-block;
+  width: 8px; height: 16px;
+  background: var(--accent);
+  animation: blink 1.1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.nav-links a {
+  font-size: .85rem;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color .15s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links .nav-cta {
+  color: var(--accent);
+  border: 1px solid var(--accent-mid);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .75rem;
+  transition: background .15s;
+}
+.nav-links .nav-cta:hover { background: var(--accent-dim); color: var(--accent); }
+
+/* ── Hero ── */
+.hero {
+  padding-block: 88px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  margin: 0 0 4px;
+  text-wrap: balance;
+}
+.hero h1 em {
+  color: var(--accent);
+  font-style: normal;
+}
+.hero-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 400;
+  color: var(--text-2);
+  margin: 0 0 32px;
+  letter-spacing: -.01em;
+}
+.hero-desc {
+  font-size: 1.0625rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  max-width: 56ch;
+  margin: 0 0 40px;
+}
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 5px;
+  font-size: .88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .15s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary { background: var(--accent); color: #0b0f1a; }
+.btn-primary:hover { background: #4fe668; }
+.btn-ghost { background: transparent; color: var(--text-2); border: 1px solid var(--border); }
+.btn-ghost:hover { border-color: var(--text-3); color: var(--text); }
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  letter-spacing: .03em;
+}
+
+/* ── Section shared ── */
+.section {
+  padding-block: 72px;
+  border-top: 1px solid var(--border);
+}
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin: 0 0 40px;
+  text-wrap: balance;
+}
+
+/* ── About ── */
+.about-body {
+  font-size: 1.0625rem;
+  color: var(--text-2);
+  line-height: 1.8;
+  max-width: 60ch;
+}
+.about-body strong { color: var(--text); font-weight: 600; }
+
+/* ── Skills ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.skill-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 20px;
+}
+.skill-group-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skill-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+}
+
+/* ── Projects ── */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.project-card {
+  background: var(--surface);
+  padding: 32px;
+  transition: background .15s;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px 32px;
+  align-items: start;
+}
+.project-card:hover { background: var(--surface2); }
+.project-left { min-width: 0; }
+.project-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 8px;
+  letter-spacing: -.01em;
+}
+.project-desc {
+  font-size: .9rem;
+  color: var(--text-2);
+  line-height: 1.7;
+  margin: 0 0 16px;
+  max-width: 54ch;
+}
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.stack-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .65rem;
+  padding: 2px 8px;
+  border-radius: 2px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-mid);
+  color: var(--accent);
+  letter-spacing: .02em;
+}
+.project-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* ── Experience ── */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.exp-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 0 32px;
+  padding-block: 32px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-meta {
+  padding-top: 2px;
+}
+.exp-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem;
+  color: var(--text-3);
+  letter-spacing: .03em;
+  margin-bottom: 6px;
+}
+.exp-location {
+  font-size: .78rem;
+  color: var(--text-3);
+}
+.exp-right {}
+.exp-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 2px;
+}
+.exp-company {
+  font-size: .85rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.exp-desc {
+  font-size: .88rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  max-width: 58ch;
+}
+.exp-desc strong { color: var(--text); font-weight: 600; }
+
+/* ── Education ── */
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.edu-item:last-child { border-bottom: none; }
+.edu-degree {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.edu-school {
+  font-size: .85rem;
+  color: var(--text-2);
+  margin-top: 2px;
+}
+.edu-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+/* ── Contact ── */
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 12px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .78rem;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: border-color .15s, color .15s;
+}
+.contact-item:hover { border-color: var(--accent); color: var(--text); }
+.contact-label { font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; color: var(--text-3); display: block; margin-bottom: 2px; }
+.contact-val { color: var(--text-2); }
+.copy-email-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .65rem; color: var(--text-3);
+  padding: 2px 6px; border-radius: 2px;
+  border: 1px solid var(--border);
+  margin-left: 4px; transition: all .15s;
+}
+.copy-email-btn:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding-block: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+footer p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem;
+  color: var(--text-3);
+  margin: 0;
+}
+footer p span { color: var(--accent); }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  body { padding-inline: 16px; }
+  .hero { padding-block: 56px 48px; }
+  .exp-item { grid-template-columns: 1fr; gap: 4px; }
+  .exp-meta { display: flex; gap: 12px; align-items: baseline; }
+  .project-card { grid-template-columns: 1fr; }
+  .project-right { align-items: flex-start; }
+  .nav-links li:not(:last-child) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-cursor { animation: none; }
+}
+</style>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo mono">haseeb.dev<span class="nav-cursor"></span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Backend Engineer · Islamabad, Pakistan · Open to remote</p>
+    <h1>I build<br>the <em>backend.</em></h1>
+    <p class="hero-sub">Laravel · PHP · AWS</p>
+    <p class="hero-desc">
+      Queued jobs, webhook pipelines, multi-tenant architectures, integrations that stay connected. Currently building a fintech compliance platform in Switzerland as one of the first engineers on the team.
+    </p>
+    <div class="hero-actions">
+      <a href="https://linkedin.com/in/haseeb-ahmad-mirza" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn ↗</a>
+      <a href="https://github.com/haseebmirza" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+    </div>
+    <div class="hero-badges">
+      <span class="badge">PHP 8</span>
+      <span class="badge">Laravel 10–13</span>
+      <span class="badge">PostgreSQL</span>
+      <span class="badge">AWS EC2 · S3 · RDS</span>
+      <span class="badge">TDD</span>
+      <span class="badge">RAG · LLMs</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <p class="section-label">About</p>
+    <h2 class="section-title">What I actually do.</h2>
+    <p class="about-body">
+      I write the code between the database and the API response —
+      <strong>queued jobs, webhook pipelines, multi-tenant SaaS, third-party integrations</strong>
+      that actually stay connected. Currently one of the first engineers at a Swiss fintech startup,
+      building a monitoring and compliance platform from the ground up.
+      Before that, four years freelancing across real estate, logistics, and B2B software —
+      clients with a messy manual process who needed something that runs.
+      <br><br>
+      I've recently added <strong>AWS hands-on</strong> to the stack: EC2, S3, RDS, IAM, Elastic IP —
+      running my own infrastructure, not just deploying to it. Currently working through VPC and
+      cloud networking. Open to senior backend roles and consulting projects.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <p class="section-label">Skills</p>
+    <h2 class="section-title">The stack.</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <p class="skill-group-label">Core</p>
+        <div class="skill-tags">
+          <span class="skill-tag">PHP 8</span>
+          <span class="skill-tag">Laravel</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">Redis</span>
+          <span class="skill-tag">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">Infrastructure</p>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS EC2</span>
+          <span class="skill-tag">S3</span>
+          <span class="skill-tag">RDS</span>
+          <span class="skill-tag">IAM</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Nginx</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">Patterns</p>
+        <div class="skill-tags">
+          <span class="skill-tag">TDD</span>
+          <span class="skill-tag">Multi-tenancy</span>
+          <span class="skill-tag">Queued jobs</span>
+          <span class="skill-tag">Webhooks</span>
+          <span class="skill-tag">RBAC</span>
+          <span class="skill-tag">CI/CD</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">AI & Data</p>
+        <div class="skill-tags">
+          <span class="skill-tag">RAG pipelines</span>
+          <span class="skill-tag">pgvector</span>
+          <span class="skill-tag">OpenAI</span>
+          <span class="skill-tag">Gemini</span>
+          <span class="skill-tag">Claude</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">Integrations</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Stripe</span>
+          <span class="skill-tag">Twilio</span>
+          <span class="skill-tag">Calendly</span>
+          <span class="skill-tag">Zapier</span>
+          <span class="skill-tag">Slack</span>
+          <span class="skill-tag">SendGrid</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">Also</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Django</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">Frontend & Mobile</p>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Flutter</span>
+          <span class="skill-tag">Android</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <p class="section-label">Selected projects</p>
+    <h2 class="section-title">Things I've shipped.</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-left">
+          <h3 class="project-name">Sales CRM with Calendly Sync</h3>
+          <p class="project-desc">
+            Replaced a spreadsheet no sales manager was actually updating. Every rep's booking flows in automatically via HMAC-SHA256 signed webhooks, lands in a Redis queue, and hits the pipeline in under a second. Managers see the full picture; reps see only their own deals. Immutable audit trail on every change.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Laravel</span>
+            <span class="stack-tag">MySQL</span>
+            <span class="stack-tag">Redis</span>
+            <span class="stack-tag">Calendly API</span>
+            <span class="stack-tag">Spatie Permission</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-left">
+          <h3 class="project-name">Real Estate RAG Chatbot</h3>
+          <p class="project-desc">
+            A white-label chatbot that answers property questions using only each agency's own documents — grounded retrieval, no hallucination, no generic AI responses. The AI provider (Gemini, OpenAI, Claude) swaps by config with zero code changes. Built as an embeddable widget with an admin panel.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Laravel</span>
+            <span class="stack-tag">PostgreSQL</span>
+            <span class="stack-tag">pgvector</span>
+            <span class="stack-tag">Google Gemini</span>
+            <span class="stack-tag">React</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-left">
+          <h3 class="project-name">AlertBridge — Webhook Relay</h3>
+          <p class="project-desc">
+            One POST endpoint that fans out to Slack and Discord in parallel, fully isolated. If one channel fails, the other still fires. Built to fix the real problem: a broken integration silently dropping alerts with no trace.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Laravel</span>
+            <span class="stack-tag">PHP 8</span>
+            <span class="stack-tag">Slack API</span>
+            <span class="stack-tag">Discord API</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <p class="section-label">Experience</p>
+    <h2 class="section-title">Where I've worked.</h2>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">Jan 2025 — Present</p>
+          <p class="exp-location">Switzerland · Remote</p>
+        </div>
+        <div class="exp-right">
+          <p class="exp-role">Backend Engineer</p>
+          <p class="exp-company">Framers Group</p>
+          <p class="exp-desc">
+            Building a fintech monitoring platform. Owns the <strong>multi-tenant core</strong> that scopes every tenant's data correctly, the queued monitoring layer running checks on schedule, and the 5-channel alert pipeline delivering via SMS (Twilio), email (SendGrid), Slack, Discord, and Zapier. TDD-first team, ships weekly.
+          </p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">Jan 2021 — Dec 2024</p>
+          <p class="exp-location">Remote</p>
+        </div>
+        <div class="exp-right">
+          <p class="exp-role">Backend Engineer — Contract</p>
+          <p class="exp-company">Hiba Logics</p>
+          <p class="exp-desc">
+            Built production backends for clients across real estate, logistics, and B2B software. Projects include a RAG chatbot, a sales CRM, an ERP, a shipping invoicing system, and payment integrations across five gateways (Stripe, PayPal, PayFast, MTN, Tazapay).
+          </p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">Jan 2020 — Dec 2020</p>
+          <p class="exp-location">Pakistan</p>
+        </div>
+        <div class="exp-right">
+          <p class="exp-role">Android Developer</p>
+          <p class="exp-company">The Urban Unit</p>
+          <p class="exp-desc">Field survey data-collection and domicile applications for Punjab government urban-planning programmes.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2014 — 2018</p>
+          <p class="exp-location">Pakistan</p>
+        </div>
+        <div class="exp-right">
+          <p class="exp-role">Android & Web Developer</p>
+          <p class="exp-company">Earlier roles</p>
+          <p class="exp-desc">
+            Fleet-tracking Android app with live GPS at Fits4 (2017–18). Android apps at BitSol and Bitsparx (2016). PHP/Django web at Bashsol (2015–16). Software engineering at Lever Systems (2014–15).
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <p class="section-label">Education</p>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div>
+          <p class="edu-degree">MS, Computer Science</p>
+          <p class="edu-school">Riphah International University · Grade A</p>
+        </div>
+        <span class="edu-year">2018 — 2020</span>
+      </div>
+      <div class="edu-item">
+        <div>
+          <p class="edu-degree">BS, Computer Science</p>
+          <p class="edu-school">FAST-NUCES</p>
+        </div>
+        <span class="edu-year">2010 — 2015</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Get in touch.</h2>
+    <p style="color:var(--text-2);font-size:.95rem;margin:0 0 28px;max-width:48ch;">Open to senior backend roles, SaaS consulting, and projects involving integrations, automation, or practical AI.</p>
+    <div class="contact-row">
+      <div class="contact-item" style="flex-direction:column;align-items:flex-start;">
+        <span class="contact-label">Email</span>
+        <span class="contact-val" id="email-val">haseeb.a.mirza@gmail.com</span>
+        <button class="copy-email-btn" onclick="copyEmail(this)">copy</button>
+      </div>
+      <a href="https://linkedin.com/in/haseeb-ahmad-mirza" target="_blank" rel="noopener" class="contact-item" style="flex-direction:column;align-items:flex-start;">
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-val">haseeb-ahmad-mirza ↗</span>
+      </a>
+      <a href="https://github.com/haseebmirza" target="_blank" rel="noopener" class="contact-item" style="flex-direction:column;align-items:flex-start;">
+        <span class="contact-label">GitHub</span>
+        <span class="contact-val">haseebmirza ↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Haseeb Ahmad Mirza · <span>Backend Engineer</span> · Islamabad, Pakistan</p>
+    <p>Built with HTML · Hosted on GitHub Pages</p>
+  </footer>
+
+</div>
+
+<script>
+function copyEmail(btn) {
+  const email = 'haseeb.a.mirza@gmail.com';
+  navigator.clipboard.writeText(email).then(() => {
+    btn.textContent = 'copied!';
+    btn.style.color = 'var(--accent)';
+    btn.style.borderColor = 'var(--accent)';
+    setTimeout(() => { btn.textContent = 'copy'; btn.style.color = ''; btn.style.borderColor = ''; }, 2000);
+  }).catch(() => {
+    const el = document.getElementById('email-val');
+    const r = document.createRange(); r.selectNode(el);
+    window.getSelection().removeAllRanges(); window.getSelection().addRange(r);
+  });
+}
+</script>
