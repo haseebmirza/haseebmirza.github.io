@@ -1,4 +1,25 @@
-<title>Haseeb Mirza</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Haseeb Mirza — Backend Engineer specialising in Laravel, PHP and AWS. Multi-tenant SaaS, queued jobs, webhook pipelines, REST APIs. Open to remote roles.">
+<title>Haseeb Mirza — Backend Engineer</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Haseeb Mirza — Backend Engineer">
+<meta property="og:description" content="Laravel · PHP · AWS — multi-tenant SaaS, queued jobs, webhook pipelines, REST APIs. Open to remote roles.">
+<meta property="og:url" content="https://haseebmirza.github.io">
+<meta property="og:image" content="https://haseebmirza.github.io/assets/profile-haseeb.jpeg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Haseeb Mirza — Backend Engineer">
+<meta name="twitter:description" content="Laravel · PHP · AWS — multi-tenant SaaS, queued jobs, webhook pipelines, REST APIs.">
+<meta name="twitter:image" content="https://haseebmirza.github.io/assets/profile-haseeb.jpeg">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 
 <style>
@@ -40,14 +61,14 @@ body {
 nav {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 150;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: 18px;
+  padding-block: 16px;
   margin-inline: -24px;
   padding-inline: 24px;
-  background: rgba(11,15,26,0.88);
+  background: rgba(11,15,26,0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -60,6 +81,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 7px;
+  z-index: 110;
 }
 .nav-cursor {
   display: inline-block;
@@ -93,12 +115,121 @@ nav {
 }
 .nav-links .nav-cta:hover { background: var(--accent-dim); color: var(--accent); }
 
+/* ── Hamburger ── */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px; height: 36px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 110;
+}
+.nav-burger span {
+  display: block;
+  width: 100%; height: 2px;
+  background: var(--text-2);
+  border-radius: 2px;
+  transition: all .25s;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile drawer */
+.nav-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(11,15,26,0.97);
+  backdrop-filter: blur(16px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.nav-drawer.open { display: flex; }
+.nav-drawer a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-2);
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: color .15s, background .15s;
+  min-width: 220px;
+  white-space: nowrap;
+  text-align: center;
+}
+.nav-drawer a:hover { color: var(--text); background: var(--surface2); }
+.nav-drawer .drawer-cta {
+  color: var(--accent) !important;
+  border: 1px solid var(--accent-mid);
+  margin-top: 8px;
+}
+
 /* ── Hero ── */
 .hero {
   padding-block: 88px 72px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 48px;
+}
+.hero-text { min-width: 0; display: flex; flex-direction: column; }
+.hero-eyebrow span { white-space: nowrap; }
+.hero-id { display: none; }
+.hero-id img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--surface2);
+  box-shadow: 0 0 0 1px var(--accent-mid);
+  filter: brightness(.88) saturate(.95);
+  flex-shrink: 0;
+}
+.hero-id-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.3;
+}
+.hero-id-meta {
+  font-size: .78rem;
+  color: var(--text-2);
+  margin: 2px 0 0;
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  align-items: center;
+  gap: 6px;
+}
+.hero-id-meta::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+.hero-photo {
+  width: 200px;
+  height: 200px;
+  max-width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--surface2);
+  box-shadow: 0 0 0 1px var(--accent-mid), 0 0 40px var(--accent-dim);
+  display: block;
+  align-self: start;
+  margin-top: 44px;
+  filter: brightness(.88) saturate(.95);
 }
 .hero-eyebrow {
   font-family: 'JetBrains Mono', monospace;
@@ -111,7 +242,7 @@ nav {
 }
 .hero h1 {
   font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-size: clamp(2.8rem, 6vw, 4rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -.03em;
@@ -129,6 +260,16 @@ nav {
   color: var(--text-2);
   margin: 0 0 32px;
   letter-spacing: -.01em;
+  min-height: 1.6em;
+}
+.hero-sub .typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  margin-left: 2px;
+  animation: blink 1.1s step-end infinite;
 }
 .hero-desc {
   font-size: 1.0625rem;
@@ -211,7 +352,7 @@ nav {
 /* ── Skills ── */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 16px;
 }
 .skill-group {
@@ -256,13 +397,83 @@ nav {
 }
 .project-card {
   background: var(--surface);
-  padding: 32px;
+  padding: 28px;
   transition: background .15s;
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 16px 32px;
+  grid-template-columns: 320px 1fr;
+  gap: 20px 28px;
   align-items: start;
 }
+.project-thumb {
+  display: block;
+  aspect-ratio: 16 / 10;
+  max-width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  transition: border-color .15s;
+}
+.project-thumb:hover { border-color: var(--accent-mid); }
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+  display: block;
+  transition: transform .3s;
+}
+.project-thumb:hover img { transform: scale(1.03); }
+.project-thumb { cursor: zoom-in; }
+
+/* ── Lightbox ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(5,8,15,0.94);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 56px 72px 24px;
+}
+.lightbox[hidden] { display: none; }
+.lb-img {
+  max-width: 100%;
+  max-height: calc(100vh - 140px);
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  user-select: none;
+}
+.lb-caption {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  font-family: 'JetBrains Mono', monospace;
+}
+.lb-title { font-size: .85rem; color: var(--text); font-weight: 600; }
+.lb-count { font-size: .72rem; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.lb-btn {
+  position: absolute;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-2);
+  font-size: 1.2rem;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  transition: color .15s, border-color .15s;
+}
+.lb-btn:hover { color: var(--accent); border-color: var(--accent-mid); }
+.lb-prev { left: 16px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
+.lb-close { top: 12px; right: 16px; }
 .project-card:hover { background: var(--surface2); }
 .project-left { min-width: 0; }
 .project-name {
@@ -440,44 +651,159 @@ footer p {
 footer p span { color: var(--accent); }
 
 /* ── Responsive ── */
-@media (max-width: 640px) {
-  body { padding-inline: 16px; }
-  .hero { padding-block: 56px 48px; }
-  .exp-item { grid-template-columns: 1fr; gap: 4px; }
-  .exp-meta { display: flex; gap: 12px; align-items: baseline; }
-  .project-card { grid-template-columns: 1fr; }
-  .project-right { align-items: flex-start; }
-  .nav-links li:not(:last-child) { display: none; }
+
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .exp-item { grid-template-columns: 140px 1fr; gap: 0 20px; }
+  .project-card { grid-template-columns: 240px 1fr; gap: 20px; padding: 24px; }
+  .hero { gap: 32px; }
+  .hero-photo { width: 150px; height: 150px; }
 }
+
+/* Large phone: 640px and below — show hamburger */
+@media (max-width: 640px) {
+  body { padding-inline: 16px; font-size: 15px; }
+  nav { padding-inline: 16px; margin-inline: -16px; }
+
+  /* Hide desktop nav, show burger */
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+
+  /* Hero */
+  .hero { padding-block: 40px 40px; grid-template-columns: 1fr; gap: 20px; }
+  .hero-photo, .hero-eyebrow { display: none; }
+  .hero-id { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+  .hero h1 { font-size: 2.6rem; }
+  .hero-sub { font-size: 1rem; margin-bottom: 16px; }
+  .hero-desc { font-size: .9rem; margin-bottom: 24px; }
+  .hero-actions { flex-direction: column; gap: 10px; margin-bottom: 24px; }
+  .hero-actions .btn { width: 100%; justify-content: center; padding: 14px 20px; font-size: .9rem; }
+  .hero-badges { gap: 6px; }
+
+  /* Sections */
+  .section { padding-block: 48px; }
+  .section-title { font-size: 1.25rem; margin-bottom: 24px; }
+
+  /* Skills — 2 columns */
+  .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .skill-group { padding: 14px; }
+  .skill-group-label { font-size: .6rem; margin-bottom: 8px; }
+  .skill-tag { font-size: .63rem; padding: 3px 7px; }
+
+  /* Projects */
+  .project-card { grid-template-columns: 1fr; padding: 20px; }
+  .project-name { font-size: .9rem; }
+  .project-desc { font-size: .84rem; }
+
+  /* Experience */
+  .exp-item { grid-template-columns: 1fr; gap: 4px; padding-block: 24px; }
+  .exp-meta { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; padding-top: 0; }
+  .exp-period { margin-bottom: 0; }
+  .exp-desc { font-size: .84rem; }
+
+  /* Education */
+  .edu-item { flex-direction: column; gap: 4px; }
+
+  /* Contact */
+  .contact-row { flex-direction: column; }
+  .contact-item { width: 100%; box-sizing: border-box; }
+
+  /* Footer */
+  footer { flex-direction: column; gap: 6px; text-align: center; }
+
+  /* Lightbox: arrows move below the image */
+  .lightbox { padding: 64px 12px 96px; }
+  .lb-img { max-height: calc(100vh - 220px); }
+  .lb-prev, .lb-next { top: auto; bottom: 28px; transform: none; }
+  .lb-prev { left: calc(50% - 56px); }
+  .lb-next { right: calc(50% - 56px); }
+}
+
+/* Small phone: 400px and below — 1 column skills */
+@media (max-width: 400px) {
+  .hero h1 { font-size: 2.1rem; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .hero-badges .badge { font-size: .62rem; }
+}
+
+/* ── Scroll to top ── */
+.scroll-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s, color .15s, border-color .15s;
+  z-index: 90;
+}
+.scroll-top.visible { opacity: 1; pointer-events: auto; }
+.scroll-top:hover { color: var(--accent); border-color: var(--accent-mid); }
+
 @media (prefers-reduced-motion: reduce) {
   .nav-cursor { animation: none; }
+  .nav-burger span { transition: none; }
 }
 </style>
+</head>
+<body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo mono">haseeb.dev<span class="nav-cursor"></span></a>
+  <a href="#" class="nav-logo mono" aria-label="Haseeb Mirza, back to top"><span><span style="color:var(--accent)">~/</span>haseeb</span><span class="nav-cursor"></span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="cv/" target="_blank">CV</a></li>
     <li><a href="#contact" class="nav-cta">Get in touch</a></li>
   </ul>
+  <button class="nav-burger" id="burger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-drawer" id="drawer">
+  <a href="#about" class="drawer-link">About</a>
+  <a href="#skills" class="drawer-link">Skills</a>
+  <a href="#projects" class="drawer-link">Projects</a>
+  <a href="#experience" class="drawer-link">Experience</a>
+  <a href="cv/" target="_blank" class="drawer-link">CV</a>
+  <a href="#contact" class="drawer-link drawer-cta">Get in touch</a>
+</div>
 
 <div class="wrap">
 
   <!-- HERO -->
   <section class="hero">
-    <p class="hero-eyebrow">Backend Engineer · Islamabad, Pakistan · Open to remote</p>
+    <div class="hero-text">
+    <div class="hero-id">
+      <img src="assets/profile-haseeb.jpeg" alt="Haseeb Mirza" width="400" height="400">
+      <div>
+        <p class="hero-id-name">Haseeb Mirza</p>
+        <p class="hero-id-meta">Islamabad · Open to remote</p>
+      </div>
+    </div>
+    <p class="hero-eyebrow"><span>Backend Engineer</span> · <span>Islamabad, Pakistan</span> · <span>Open to remote</span></p>
     <h1>I build<br>the <em>backend.</em></h1>
-    <p class="hero-sub">Laravel · PHP · AWS</p>
+    <p class="hero-sub" id="typewriter"><span class="typewriter-cursor"></span></p>
     <p class="hero-desc">
-      Queued jobs, webhook pipelines, multi-tenant architectures, integrations that stay connected. Currently building a fintech compliance platform in Switzerland as one of the first engineers on the team.
+      Queued jobs, webhook pipelines, multi-tenant architectures, integrations that stay connected. Currently building a fintech monitoring platform for a Swiss company.
     </p>
     <div class="hero-actions">
       <a href="https://linkedin.com/in/haseeb-ahmad-mirza" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn ↗</a>
       <a href="https://github.com/haseebmirza" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+      <a href="cv/" target="_blank" rel="noopener" class="btn btn-ghost">View CV ↗</a>
     </div>
     <div class="hero-badges">
       <span class="badge">PHP 8</span>
@@ -487,6 +813,8 @@ footer p span { color: var(--accent); }
       <span class="badge">TDD</span>
       <span class="badge">RAG · LLMs</span>
     </div>
+    </div>
+    <img class="hero-photo" src="assets/profile-haseeb.jpeg" alt="Haseeb Mirza" width="400" height="400">
   </section>
 
   <!-- ABOUT -->
@@ -496,9 +824,8 @@ footer p span { color: var(--accent); }
     <p class="about-body">
       I write the code between the database and the API response —
       <strong>queued jobs, webhook pipelines, multi-tenant SaaS, third-party integrations</strong>
-      that actually stay connected. Currently one of the first engineers at a Swiss fintech startup,
-      building a monitoring and compliance platform from the ground up.
-      Before that, four years freelancing across real estate, logistics, and B2B software —
+      that actually stay connected. Currently building a fintech monitoring platform for a Swiss company.
+      Before that, contract work across real estate, logistics, and B2B software —
       clients with a messy manual process who needed something that runs.
       <br><br>
       I've recently added <strong>AWS hands-on</strong> to the stack: EC2, S3, RDS, IAM, Elastic IP —
@@ -568,17 +895,10 @@ footer p span { color: var(--accent); }
         </div>
       </div>
       <div class="skill-group">
-        <p class="skill-group-label">Also</p>
-        <div class="skill-tags">
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Django</span>
-        </div>
-      </div>
-      <div class="skill-group">
         <p class="skill-group-label">Frontend & Mobile</p>
         <div class="skill-tags">
           <span class="skill-tag">React</span>
+          <span class="skill-tag">Next.js</span>
           <span class="skill-tag">JavaScript</span>
           <span class="skill-tag">Flutter</span>
           <span class="skill-tag">Android</span>
@@ -594,10 +914,13 @@ footer p span { color: var(--accent); }
     <div class="projects-grid">
 
       <div class="project-card">
+        <a class="project-thumb" href="assets/projects/crm-sales.jpeg" target="_blank" rel="noopener">
+          <img src="assets/projects/crm-sales.jpeg" alt="Sales CRM dashboard showing meeting counts, pipeline status tiles and meeting charts" loading="lazy" width="1280" height="853">
+        </a>
         <div class="project-left">
           <h3 class="project-name">Sales CRM with Calendly Sync</h3>
           <p class="project-desc">
-            Replaced a spreadsheet no sales manager was actually updating. Every rep's booking flows in automatically via HMAC-SHA256 signed webhooks, lands in a Redis queue, and hits the pipeline in under a second. Managers see the full picture; reps see only their own deals. Immutable audit trail on every change.
+            Replaced a spreadsheet ~20 sales reps weren't updating. Every rep's booking flows in automatically via HMAC-SHA256 signed webhooks, lands in a Redis queue, and hits the pipeline in under a second. Managers see the full picture; reps see only their own deals. Immutable audit trail on every change.
           </p>
           <div class="project-stack">
             <span class="stack-tag">Laravel</span>
@@ -610,6 +933,9 @@ footer p span { color: var(--accent); }
       </div>
 
       <div class="project-card">
+        <a class="project-thumb" href="assets/projects/rag-chatbot.jpeg" target="_blank" rel="noopener">
+          <img src="assets/projects/rag-chatbot.jpeg" alt="Real estate website with the Property Advisor chatbot widget answering a mortgage question" loading="lazy" width="1280" height="733">
+        </a>
         <div class="project-left">
           <h3 class="project-name">Real Estate RAG Chatbot</h3>
           <p class="project-desc">
@@ -626,6 +952,9 @@ footer p span { color: var(--accent); }
       </div>
 
       <div class="project-card">
+        <a class="project-thumb" href="assets/projects/alertbridge.png" target="_blank" rel="noopener">
+          <img src="assets/projects/alertbridge.png" alt="AlertBridge dashboard with webhook endpoint, sample curl and recent alerts sent to Slack and Discord" loading="lazy" width="1579" height="919">
+        </a>
         <div class="project-left">
           <h3 class="project-name">AlertBridge — Webhook Relay</h3>
           <p class="project-desc">
@@ -666,7 +995,7 @@ footer p span { color: var(--accent); }
       <div class="exp-item">
         <div class="exp-meta">
           <p class="exp-period">Jan 2021 — Dec 2024</p>
-          <p class="exp-location">Remote</p>
+          <p class="exp-location">Pakistan</p>
         </div>
         <div class="exp-right">
           <p class="exp-role">Backend Engineer — Contract</p>
@@ -733,11 +1062,11 @@ footer p span { color: var(--accent); }
     <h2 class="section-title">Get in touch.</h2>
     <p style="color:var(--text-2);font-size:.95rem;margin:0 0 28px;max-width:48ch;">Open to senior backend roles, SaaS consulting, and projects involving integrations, automation, or practical AI.</p>
     <div class="contact-row">
-      <div class="contact-item" style="flex-direction:column;align-items:flex-start;">
+      <a href="mailto:haseeb.a.mirza@gmail.com?subject=Hello%20Haseeb" class="contact-item" style="flex-direction:column;align-items:flex-start;">
         <span class="contact-label">Email</span>
-        <span class="contact-val" id="email-val">haseeb.a.mirza@gmail.com</span>
-        <button class="copy-email-btn" onclick="copyEmail(this)">copy</button>
-      </div>
+        <span class="contact-val" id="email-val">haseeb.a.mirza@gmail.com ↗</span>
+        <button class="copy-email-btn" type="button" onclick="event.preventDefault();event.stopPropagation();copyEmail(this)">copy</button>
+      </a>
       <a href="https://linkedin.com/in/haseeb-ahmad-mirza" target="_blank" rel="noopener" class="contact-item" style="flex-direction:column;align-items:flex-start;">
         <span class="contact-label">LinkedIn</span>
         <span class="contact-val">haseeb-ahmad-mirza ↗</span>
@@ -745,6 +1074,10 @@ footer p span { color: var(--accent); }
       <a href="https://github.com/haseebmirza" target="_blank" rel="noopener" class="contact-item" style="flex-direction:column;align-items:flex-start;">
         <span class="contact-label">GitHub</span>
         <span class="contact-val">haseebmirza ↗</span>
+      </a>
+      <a href="cv/" target="_blank" rel="noopener" class="contact-item" style="flex-direction:column;align-items:flex-start;">
+        <span class="contact-label">CV</span>
+        <span class="contact-val">View / save as PDF ↗</span>
       </a>
     </div>
   </section>
@@ -757,7 +1090,140 @@ footer p span { color: var(--accent); }
 
 </div>
 
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Project screenshots">
+  <button class="lb-btn lb-close" id="lb-close" aria-label="Close">✕</button>
+  <button class="lb-btn lb-prev" id="lb-prev" aria-label="Previous screenshot">←</button>
+  <img class="lb-img" id="lb-img" alt="">
+  <div class="lb-caption">
+    <span class="lb-title" id="lb-title"></span>
+    <span class="lb-count" id="lb-count"></span>
+  </div>
+  <button class="lb-btn lb-next" id="lb-next" aria-label="Next screenshot">→</button>
+</div>
+
 <script>
+// Lightbox
+(() => {
+  const thumbs = [...document.querySelectorAll('.project-thumb')];
+  const shots = thumbs.map(a => ({
+    src: a.getAttribute('href'),
+    alt: a.querySelector('img').alt,
+    title: a.closest('.project-card').querySelector('.project-name').textContent
+  }));
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lb-img');
+  const title = document.getElementById('lb-title');
+  const count = document.getElementById('lb-count');
+  let i = 0, lastFocus = null;
+
+  const show = n => {
+    i = (n + shots.length) % shots.length;
+    img.src = shots[i].src;
+    img.alt = shots[i].alt;
+    title.textContent = shots[i].title;
+    count.textContent = `${i + 1} / ${shots.length}`;
+  };
+  const open = n => {
+    lastFocus = document.activeElement;
+    show(n);
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lb-close').focus();
+  };
+  const close = () => {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  };
+
+  thumbs.forEach((a, n) => a.addEventListener('click', e => { e.preventDefault(); open(n); }));
+  document.getElementById('lb-prev').addEventListener('click', () => show(i - 1));
+  document.getElementById('lb-next').addEventListener('click', () => show(i + 1));
+  document.getElementById('lb-close').addEventListener('click', close);
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+
+  document.addEventListener('keydown', e => {
+    if (lb.hidden) return;
+    if (e.key === 'ArrowLeft') show(i - 1);
+    else if (e.key === 'ArrowRight') show(i + 1);
+    else if (e.key === 'Escape') close();
+  });
+
+  let startX = null;
+  lb.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) show(dx > 0 ? i - 1 : i + 1);
+    startX = null;
+  });
+})();
+
+// Scroll to top
+(() => {
+  const btn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// Hamburger menu
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('drawer');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  drawer.classList.toggle('open');
+  document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+});
+drawer.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    burger.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// Typewriter
+(() => {
+  const el = document.getElementById('typewriter');
+  const phrases = ['Laravel · PHP · AWS', 'APIs · Queues · S3', 'Backend Engineer'];
+  const cursor = el.querySelector('.typewriter-cursor');
+  let p = 0;
+  const type = () => {
+    const text = phrases[p];
+    let i = 0;
+    const span = document.createTextNode('');
+    el.insertBefore(span, cursor);
+    const tick = setInterval(() => {
+      span.textContent = text.slice(0, ++i);
+      if (i === text.length) {
+        clearInterval(tick);
+        setTimeout(erase, 2200);
+      }
+    }, 70);
+  };
+  const erase = () => {
+    const span = cursor.previousSibling;
+    const text = span.textContent;
+    let i = text.length;
+    const tick = setInterval(() => {
+      span.textContent = text.slice(0, --i);
+      if (i === 0) {
+        clearInterval(tick);
+        span.remove();
+        p = (p + 1) % phrases.length;
+        setTimeout(type, 400);
+      }
+    }, 40);
+  };
+  type();
+})();
+
 function copyEmail(btn) {
   const email = 'haseeb.a.mirza@gmail.com';
   navigator.clipboard.writeText(email).then(() => {
@@ -772,3 +1238,5 @@ function copyEmail(btn) {
   });
 }
 </script>
+</body>
+</html>

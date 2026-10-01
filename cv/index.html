@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CV of Haseeb Ahmad Mirza, Backend Engineer: Laravel, PHP, Amazon Web Services (AWS). Multi-tenant SaaS, queued jobs, webhooks, TDD.">
+<title>Haseeb Ahmad Mirza — CV</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+
+<style>
+  :root {
+    --ink: #e2e8f4;
+    --secondary: #8896b0;
+    --accent: #39d353;
+    --rule: #39d353;
+    --rule-light: #1e2d45;
+    --paper: #0b0f1a;
+    --bullet: #8896b0;
+    --chrome: #111827;
+    color-scheme: dark;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule-light); }
+  a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── Toolbar (screen only) ── */
+  .toolbar {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 16px 36px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .toolbar a { border: none; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--secondary); }
+  .toolbar a:hover { color: var(--accent); }
+  .print-btn {
+    font: 600 12px 'JetBrains Mono', monospace;
+    color: #0b0f1a;
+    background: var(--accent);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    letter-spacing: .02em;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .page {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 28px 36px 56px;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .header h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .headline {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+    margin: 4px 0 8px;
+  }
+  .contact-line {
+    font-size: 13px;
+    color: var(--secondary);
+    line-height: 1.8;
+  }
+  .contact-line .sep {
+    display: inline-block;
+    margin: 0 6px;
+    color: var(--rule-light);
+  }
+  .nowrap { white-space: nowrap; }
+
+  /* ── Sections ── */
+  .section { margin-top: 22px; }
+  .section-heading {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    padding-bottom: 6px;
+    border-bottom: 1.5px solid var(--rule);
+    margin-bottom: 12px;
+  }
+
+  .summary-text {
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── Experience ── */
+  .role { margin-bottom: 20px; }
+  .role:last-child { margin-bottom: 0; }
+  .role-line-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px 12px;
+  }
+  .role-title { font-weight: 700; font-size: 15px; color: var(--ink); }
+  .role-dates {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--secondary);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .role-line-2 { font-size: 13.5px; color: var(--secondary); margin-bottom: 2px; }
+  .role-descriptor { font-size: 13.5px; font-style: italic; color: var(--secondary); margin-bottom: 6px; }
+  .role ul { list-style: none; }
+  .role li {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--secondary);
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  .role li::before {
+    content: "·";
+    position: absolute;
+    left: 2px;
+    color: var(--bullet);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  .earlier-list { font-size: 13.5px; color: var(--secondary); margin-bottom: 6px; line-height: 1.55; }
+
+  /* ── Skills ── */
+  .skills-block { font-size: 14px; line-height: 1.7; }
+  .skills-block .row { margin-bottom: 2px; }
+  .skills-block .label { font-weight: 700; color: var(--ink); }
+  .skills-block .value { color: var(--secondary); }
+
+  /* ── Projects ── */
+  .project { margin-bottom: 14px; }
+  .project:last-child { margin-bottom: 0; }
+  .project-name { font-weight: 700; font-size: 14.5px; color: var(--ink); }
+  .project-tag { font-weight: 400; font-size: 13px; color: var(--secondary); font-style: italic; }
+  .project-desc { font-size: 14px; color: var(--secondary); line-height: 1.55; margin-top: 1px; }
+  .project-stack { font-size: 13px; color: var(--accent); font-style: italic; margin-top: 2px; }
+
+  /* ── Education ── */
+  .edu-item { margin-bottom: 6px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-line-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2px 12px;
+  }
+  .edu-degree { font-weight: 700; font-size: 14.5px; color: var(--ink); }
+  .edu-dates { font-size: 13.5px; color: var(--secondary); font-variant-numeric: tabular-nums; }
+  .edu-school { font-size: 13.5px; color: var(--secondary); }
+
+  .lang-list { font-size: 14px; color: var(--secondary); line-height: 1.6; }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .toolbar { padding: 12px 18px 0; }
+    .page { padding: 20px 18px 36px; }
+    .header h1 { font-size: 25px; }
+    .role-line-1, .edu-line-1 { flex-direction: column; }
+    .role-dates { white-space: normal; }
+  }
+
+  /* ── Print: always light, whatever the screen theme ── */
+  @page { margin: 14mm 12mm; }
+  @media print {
+    :root,
+    :root:not([data-theme="light"]),
+    :root[data-theme="dark"] {
+      --ink: #1c2533;
+      --secondary: #3d4a5c;
+      --accent: #2b4c6f;
+      --rule: #2b4c6f;
+      --rule-light: #c5ced8;
+      --paper: #ffffff;
+      --bullet: #3d4a5c;
+      --chrome: #f3f5f8;
+      color-scheme: light;
+    }
+    body { font-family: 'DM Sans', system-ui, sans-serif; font-size: 13.5px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .header h1, .section-heading { font-family: 'JetBrains Mono', monospace; }
+    .toolbar { display: none; }
+    .page { max-width: none; padding: 0; }
+    a { border-bottom: none; }
+    .role, .project, .edu-item { break-inside: avoid; }
+    .section-heading { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a href="../">← haseebmirza.github.io</a>
+  <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<main class="page">
+
+  <header class="header">
+    <h1>Haseeb Ahmad Mirza</h1>
+    <p class="headline">Backend Engineer · Laravel · PHP · AWS</p>
+    <div class="contact-line">
+      <span class="nowrap">Islamabad, Pakistan · Open to remote</span>
+      <span class="sep">■</span>
+      <a class="nowrap" href="mailto:haseeb.a.mirza@gmail.com">haseeb.a.mirza@gmail.com</a>
+      <span class="sep">■</span>
+      <a class="nowrap" href="https://haseebmirza.github.io">haseebmirza.github.io</a>
+      <br>
+      <a class="nowrap" href="https://linkedin.com/in/haseeb-ahmad-mirza">linkedin.com/in/haseeb-ahmad-mirza</a>
+      <span class="sep">■</span>
+      <a class="nowrap" href="https://github.com/haseebmirza">github.com/haseebmirza</a>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2 class="section-heading">Professional Summary</h2>
+    <p class="summary-text">Backend engineer specialising in Laravel and PHP, currently building a fintech monitoring and open-banking compliance platform for a Swiss company. Day-to-day work covers multi-tenant SaaS architecture, queued background processing, webhook integrations, REST APIs and role-based access control, shipped with Test-Driven Development. Hands-on with Amazon Web Services (AWS): deploys and runs Laravel applications on EC2 with RDS, S3 and IAM roles. Has built AI features using Retrieval-Augmented Generation (RAG) and LLM APIs. Writing code professionally since 2014.</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-heading">Skills</h2>
+    <div class="skills-block">
+      <div class="row"><span class="label">Languages:</span> <span class="value">PHP 8, JavaScript, SQL</span></div>
+      <div class="row"><span class="label">Backend:</span> <span class="value">Laravel (10–13), REST API design, multi-tenancy, queued jobs, background workers, task scheduling, webhooks, HMAC-SHA256 webhook signing, API documentation, Test-Driven Development (TDD), PHPUnit</span></div>
+      <div class="row"><span class="label">Cloud (AWS):</span> <span class="value">Amazon Web Services: EC2, S3 (private buckets, pre-signed URLs), RDS (MySQL), IAM roles and policies, Elastic IP, security groups</span></div>
+      <div class="row"><span class="label">DevOps:</span> <span class="value">Docker, Linux (Ubuntu), Nginx, Git, CI/CD with Bitbucket Pipelines, SSH deployment</span></div>
+      <div class="row"><span class="label">Databases:</span> <span class="value">PostgreSQL, MySQL, Redis, pgvector, schema design, migrations, query optimisation</span></div>
+      <div class="row"><span class="label">Security &amp; Auth:</span> <span class="value">Laravel Passport (OAuth2), Spatie Permission, role-based access control (RBAC), audit logging</span></div>
+      <div class="row"><span class="label">AI Integration:</span> <span class="value">RAG, LLM integration (OpenAI, Google Gemini, Anthropic Claude), vector search, embeddings, intent classification</span></div>
+      <div class="row"><span class="label">Integrations:</span> <span class="value">Twilio, SendGrid, Calendly, Zapier, Slack, Discord, Stripe, PayPal, PayFast, MTN, Tazapay</span></div>
+      <div class="row"><span class="label">Frontend &amp; Mobile:</span> <span class="value">React, Next.js, Tailwind CSS, Flutter, Android (Java)</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-heading">Professional Experience</h2>
+
+    <div class="role">
+      <div class="role-line-1">
+        <span class="role-title">Backend Engineer</span>
+        <span class="role-dates">January 2025 — Present, Switzerland (Remote)</span>
+      </div>
+      <div class="role-line-2">Framers Group</div>
+      <div class="role-descriptor">Swiss software company building a fintech monitoring and open-banking compliance platform.</div>
+      <ul>
+        <li>Built the platform's multi-tenant architecture, scoping all tenant data by tenant identifier within a shared database.</li>
+        <li>Worked on the queued background-processing layer running scheduled monitoring checks and dispatching alert notifications.</li>
+        <li>Built a 5-channel alert pipeline: SMS via Twilio, email via SendGrid, and workflow automation into Slack, Discord and Zapier.</li>
+        <li>Implemented incident tracking, maintenance windows and heartbeat monitoring.</li>
+        <li>Extending the platform from infrastructure monitoring into open-banking compliance checking and evidence collection.</li>
+        <li>Ships with Test-Driven Development (TDD) as the team's standard workflow.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-line-1">
+        <span class="role-title">Backend Engineer — Contract</span>
+        <span class="role-dates">January 2021 — December 2024, Pakistan</span>
+      </div>
+      <div class="role-line-2">Hiba Logics</div>
+      <div class="role-descriptor">Software consultancy delivering backend systems for clients in real estate, engineering consultancy, logistics and B2B sales.</div>
+      <ul>
+        <li>Built a sales CRM for ~20 reps that pulls every rep's Calendly bookings into one pipeline using HMAC-SHA256 signed webhooks and Redis queues, replacing manual spreadsheet tracking. Added RBAC with Spatie Permission and Laravel Passport, plus an audit trail on every change.</li>
+        <li>Designed a 3-step chatbot that checks a knowledge base and pattern matching first and calls the LLM (GPT-4o-mini) only as a last resort, keeping AI API costs low.</li>
+        <li>Built and maintain an internal ERP system and company website for a 10–50 person engineering consultancy.</li>
+        <li>Built a shipping cost and invoicing system for a logistics client: rate-based pricing, RBAC, PDF invoice generation and Excel rate imports.</li>
+        <li>Integrated payment gateways (Stripe, PayPal, PayFast, MTN, Tazapay) across multiple client projects.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-line-1">
+        <span class="role-title">Android Developer</span>
+        <span class="role-dates">January 2020 — December 2020, Pakistan</span>
+      </div>
+      <div class="role-line-2">The Urban Unit</div>
+      <div class="role-descriptor">Punjab government urban-planning and data organisation.</div>
+      <ul>
+        <li>Built Android applications including a field survey data-collection app and a domicile application.</li>
+        <li>Delivered several additional applications supporting the organisation's programmes.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-line-1">
+        <span class="role-title">Android Developer</span>
+        <span class="role-dates">March 2017 — March 2018, Lahore</span>
+      </div>
+      <div class="role-line-2">Fits4 Private Limited</div>
+      <ul>
+        <li>Built Fits4Tracking, a fleet-tracking Android app for a trucking company showing live vehicle locations from in-vehicle GPS devices through the platform API.</li>
+        <li>Developed additional Android applications for company clients.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-line-1">
+        <span class="role-title">Earlier Roles</span>
+        <span class="role-dates">October 2014 — January 2017, Islamabad</span>
+      </div>
+      <div class="earlier-list">Android Developer, BitSol Technologies (2016–2017) · Android Developer, Bitsparx (2016) · Web Developer, Bashsol (2015–2016) · Software Engineer, Lever Systems (2014–2015).</div>
+      <ul>
+        <li>Python/Django web applications, WordPress and PHP development, and native Android development.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-heading">Personal Projects</h2>
+
+    <div class="project">
+      <div class="project-name">Real Estate RAG Chatbot</div>
+      <div class="project-desc">Multi-tenant white-label chatbot that answers property questions using only each agency's own documents. Retrieval over PostgreSQL + pgvector; Google Gemini for embeddings and generation; AI provider swappable to OpenAI or Anthropic Claude by configuration. Built as an embeddable widget with an admin panel.</div>
+      <div class="project-stack">Laravel, PostgreSQL, pgvector, Google Gemini, React</div>
+    </div>
+
+    <div class="project">
+      <div class="project-name">AlertBridge — Webhook Relay</div>
+      <div class="project-desc">Single-endpoint relay that sends alerts to Slack and Discord in parallel, with isolated per-channel error handling so one channel's failure cannot block the other.</div>
+      <div class="project-stack">Laravel, PHP 8, Slack and Discord webhooks</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-heading">Education</h2>
+
+    <div class="edu-item">
+      <div class="edu-line-1">
+        <span class="edu-degree">MS, Computer Science</span>
+        <span class="edu-dates">February 2018 — December 2020</span>
+      </div>
+      <div class="edu-school">Riphah International University · Grade: A</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-line-1">
+        <span class="edu-degree">BS, Computer Science</span>
+        <span class="edu-dates">2010 — 2015</span>
+      </div>
+      <div class="edu-school">National University of Computer &amp; Emerging Sciences (FAST-NUCES)</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-heading">Languages</h2>
+    <div class="lang-list">
+      English — professional working proficiency<br>
+      Urdu — native
+    </div>
+  </section>
+
+</main>
+</body>
+</html>
