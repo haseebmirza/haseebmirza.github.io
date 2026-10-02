@@ -249,21 +249,41 @@
 
   <section class="section">
     <h2 class="section-heading">Professional Summary</h2>
-    <p class="summary-text">Backend engineer specialising in Laravel and PHP, currently building a fintech monitoring and open-banking compliance platform for a Swiss company. Day-to-day work covers multi-tenant SaaS architecture, queued background processing, webhook integrations, REST APIs and role-based access control, shipped with Test-Driven Development. Hands-on with Amazon Web Services (AWS): deploys and runs Laravel applications on EC2 with RDS, S3 and IAM roles. Has built AI features using Retrieval-Augmented Generation (RAG) and LLM APIs. Writing code professionally since 2014.</p>
+    <p class="summary-text">Backend engineer specialising in Laravel and PHP, currently building a fintech monitoring and open-banking compliance platform for a Swiss company. Day-to-day work covers multi-tenant SaaS architecture, queued background processing, webhook integrations, REST APIs and role-based access control, shipped with Test-Driven Development. Deploys and runs Laravel applications on AWS (EC2, RDS, S3, IAM roles). Writing code professionally since 2014.</p>
   </section>
 
   <section class="section">
     <h2 class="section-heading">Skills</h2>
     <div class="skills-block">
       <div class="row"><span class="label">Languages:</span> <span class="value">PHP 8, JavaScript, SQL</span></div>
-      <div class="row"><span class="label">Backend:</span> <span class="value">Laravel (10–13), REST API design, multi-tenancy, queued jobs, background workers, task scheduling, webhooks, HMAC-SHA256 webhook signing, API documentation, Test-Driven Development (TDD), PHPUnit</span></div>
-      <div class="row"><span class="label">Cloud (AWS):</span> <span class="value">Amazon Web Services: EC2, S3 (private buckets, pre-signed URLs), RDS (MySQL), IAM roles and policies, Elastic IP, security groups</span></div>
+      <div class="row"><span class="label">Backend:</span> <span class="value">Laravel (10–13), REST API design, multi-tenancy, queued jobs, task scheduling, webhooks, OAuth2 (Passport), RBAC (Spatie Permission), TDD, PHPUnit</span></div>
+      <div class="row"><span class="label">Cloud (AWS):</span> <span class="value">EC2, S3 (private buckets, pre-signed URLs), RDS (MySQL), IAM roles and policies, Elastic IP, security groups</span></div>
       <div class="row"><span class="label">DevOps:</span> <span class="value">Docker, Linux (Ubuntu), Nginx, Git, CI/CD with Bitbucket Pipelines, SSH deployment</span></div>
       <div class="row"><span class="label">Databases:</span> <span class="value">PostgreSQL, MySQL, Redis, pgvector, schema design, migrations, query optimisation</span></div>
-      <div class="row"><span class="label">Security &amp; Auth:</span> <span class="value">Laravel Passport (OAuth2), Spatie Permission, role-based access control (RBAC), audit logging</span></div>
-      <div class="row"><span class="label">AI Integration:</span> <span class="value">RAG, LLM integration (OpenAI, Google Gemini, Anthropic Claude), vector search, embeddings, intent classification</span></div>
-      <div class="row"><span class="label">Integrations:</span> <span class="value">Twilio, SendGrid, Calendly, Zapier, Slack, Discord, Stripe, PayPal, PayFast, MTN, Tazapay</span></div>
+      <div class="row"><span class="label">Integrations:</span> <span class="value">Twilio, SendGrid, Calendly, Zapier, Slack, Discord, Stripe, PayPal, OpenAI, Google Gemini</span></div>
       <div class="row"><span class="label">Frontend &amp; Mobile:</span> <span class="value">React, Next.js, Tailwind CSS, Flutter, Android (Java)</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-heading">Projects</h2>
+
+    <div class="project">
+      <div class="project-name">Notes API <span style="font-weight:400;font-size:12px;color:var(--text-2);">—</span> <a href="https://notes-api-dev.netlify.app/" target="_blank" rel="noopener" style="font-weight:400;font-size:12px;color:var(--accent);text-decoration:none;">notes-api-dev.netlify.app</a></div>
+      <div class="project-desc">REST API with S3 file uploads, soft deletes, and paginated search. Deployed on EC2 with MySQL on RDS and IAM-role-based S3 access — no access keys in the environment.</div>
+      <div class="project-stack">Laravel 13, MySQL (RDS), AWS S3, EC2</div>
+    </div>
+
+    <div class="project">
+      <div class="project-name">Real Estate RAG Chatbot</div>
+      <div class="project-desc">Multi-tenant white-label chatbot that answers property questions using only each agency's own documents. Retrieval over PostgreSQL + pgvector; AI provider swappable by config. Built as an embeddable widget with an admin panel.</div>
+      <div class="project-stack">Laravel, PostgreSQL, pgvector, Google Gemini, React</div>
+    </div>
+
+    <div class="project">
+      <div class="project-name">AlertBridge — Webhook Relay</div>
+      <div class="project-desc">Single-endpoint relay that sends alerts to Slack and Discord in parallel, with isolated per-channel error handling so one channel's failure cannot block the other.</div>
+      <div class="project-stack">Laravel, PHP 8, Slack and Discord webhooks</div>
     </div>
   </section>
 
@@ -278,11 +298,10 @@
       <div class="role-line-2">Framers Group</div>
       <div class="role-descriptor">Swiss software company building a fintech monitoring and open-banking compliance platform.</div>
       <ul>
-        <li>Built the platform's multi-tenant architecture, scoping all tenant data by tenant identifier within a shared database.</li>
-        <li>Worked on the queued background-processing layer running scheduled monitoring checks and dispatching alert notifications.</li>
-        <li>Built a 5-channel alert pipeline: SMS via Twilio, email via SendGrid, and workflow automation into Slack, Discord and Zapier.</li>
+        <li>Built multi-tenant architecture scoping all tenant data within a shared database.</li>
+        <li>Built a 5-channel alert pipeline: SMS (Twilio), email (SendGrid), Slack, Discord and Zapier.</li>
         <li>Implemented incident tracking, maintenance windows and heartbeat monitoring.</li>
-        <li>Extending the platform from infrastructure monitoring into open-banking compliance checking and evidence collection.</li>
+        <li>Extending the platform into open-banking compliance checking and evidence collection.</li>
         <li>Ships with Test-Driven Development (TDD) as the team's standard workflow.</li>
       </ul>
     </div>
@@ -295,64 +314,18 @@
       <div class="role-line-2">Hiba Logics</div>
       <div class="role-descriptor">Software consultancy delivering backend systems for clients in real estate, engineering consultancy, logistics and B2B sales.</div>
       <ul>
-        <li>Built a sales CRM for ~20 reps that pulls every rep's Calendly bookings into one pipeline using HMAC-SHA256 signed webhooks and Redis queues, replacing manual spreadsheet tracking. Added RBAC with Spatie Permission and Laravel Passport, plus an audit trail on every change.</li>
-        <li>Designed a 3-step chatbot that checks a knowledge base and pattern matching first and calls the LLM (GPT-4o-mini) only as a last resort, keeping AI API costs low.</li>
-        <li>Built and maintain an internal ERP system and company website for a 10–50 person engineering consultancy.</li>
-        <li>Built a shipping cost and invoicing system for a logistics client: rate-based pricing, RBAC, PDF invoice generation and Excel rate imports.</li>
+        <li>Built a sales CRM for ~20 reps with Calendly webhook sync (HMAC-SHA256), RBAC and audit trail.</li>
+        <li>Designed a 3-step chatbot that checks knowledge base and pattern matching first, calling the LLM only as a last resort.</li>
         <li>Integrated payment gateways (Stripe, PayPal, PayFast, MTN, Tazapay) across multiple client projects.</li>
       </ul>
     </div>
 
     <div class="role">
       <div class="role-line-1">
-        <span class="role-title">Android Developer</span>
-        <span class="role-dates">January 2020 — December 2020, Pakistan</span>
-      </div>
-      <div class="role-line-2">The Urban Unit</div>
-      <div class="role-descriptor">Punjab government urban-planning and data organisation.</div>
-      <ul>
-        <li>Built Android applications including a field survey data-collection app and a domicile application.</li>
-        <li>Delivered several additional applications supporting the organisation's programmes.</li>
-      </ul>
-    </div>
-
-    <div class="role">
-      <div class="role-line-1">
-        <span class="role-title">Android Developer</span>
-        <span class="role-dates">March 2017 — March 2018, Lahore</span>
-      </div>
-      <div class="role-line-2">Fits4 Private Limited</div>
-      <ul>
-        <li>Built Fits4Tracking, a fleet-tracking Android app for a trucking company showing live vehicle locations from in-vehicle GPS devices through the platform API.</li>
-        <li>Developed additional Android applications for company clients.</li>
-      </ul>
-    </div>
-
-    <div class="role">
-      <div class="role-line-1">
         <span class="role-title">Earlier Roles</span>
-        <span class="role-dates">October 2014 — January 2017, Islamabad</span>
+        <span class="role-dates">October 2014 — December 2020</span>
       </div>
-      <div class="earlier-list">Android Developer, BitSol Technologies (2016–2017) · Android Developer, Bitsparx (2016) · Web Developer, Bashsol (2015–2016) · Software Engineer, Lever Systems (2014–2015).</div>
-      <ul>
-        <li>Python/Django web applications, WordPress and PHP development, and native Android development.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-heading">Personal Projects</h2>
-
-    <div class="project">
-      <div class="project-name">Real Estate RAG Chatbot</div>
-      <div class="project-desc">Multi-tenant white-label chatbot that answers property questions using only each agency's own documents. Retrieval over PostgreSQL + pgvector; Google Gemini for embeddings and generation; AI provider swappable to OpenAI or Anthropic Claude by configuration. Built as an embeddable widget with an admin panel.</div>
-      <div class="project-stack">Laravel, PostgreSQL, pgvector, Google Gemini, React</div>
-    </div>
-
-    <div class="project">
-      <div class="project-name">AlertBridge — Webhook Relay</div>
-      <div class="project-desc">Single-endpoint relay that sends alerts to Slack and Discord in parallel, with isolated per-channel error handling so one channel's failure cannot block the other.</div>
-      <div class="project-stack">Laravel, PHP 8, Slack and Discord webhooks</div>
+      <div class="earlier-list">Android Developer, The Urban Unit (2020) · Android Developer, Fits4 Private Limited (2017–2018) · Android Developer, BitSol Technologies (2016–2017) · Web Developer, Bashsol (2015–2016) · Software Engineer, Lever Systems (2014–2015).</div>
     </div>
   </section>
 
