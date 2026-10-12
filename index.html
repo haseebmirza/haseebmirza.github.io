@@ -798,7 +798,7 @@ footer p span { color: var(--accent); }
     <h1>I build<br>the <em>backend.</em></h1>
     <p class="hero-sub" id="typewriter"><span class="typewriter-cursor"></span></p>
     <p class="hero-desc">
-      Queued jobs, webhook pipelines, multi-tenant architectures, integrations that stay connected. Currently building a fintech monitoring platform for a Swiss company.
+      Queued jobs, webhook pipelines, multi-tenant architectures, integrations that stay connected. Currently building a fintech monitoring and open-banking compliance platform for a Swiss company.
     </p>
     <div class="hero-actions">
       <a href="https://linkedin.com/in/haseeb-ahmad-mirza" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn ↗</a>
@@ -824,7 +824,7 @@ footer p span { color: var(--accent); }
     <p class="about-body">
       I write the code between the database and the API response —
       <strong>queued jobs, webhook pipelines, multi-tenant SaaS, third-party integrations</strong>
-      that actually stay connected. Currently building a fintech monitoring platform for a Swiss company.
+      that actually stay connected. Currently building a fintech monitoring and open-banking compliance platform for a Swiss company.
       Before that, contract work across real estate, logistics, and B2B software —
       clients with a messy manual process who needed something that runs.
       <br><br>
@@ -848,6 +848,9 @@ footer p span { color: var(--accent); }
           <span class="skill-tag">MySQL</span>
           <span class="skill-tag">Redis</span>
           <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">Node.js</span>
         </div>
       </div>
       <div class="skill-group">
@@ -871,6 +874,8 @@ footer p span { color: var(--accent); }
           <span class="skill-tag">Webhooks</span>
           <span class="skill-tag">RBAC</span>
           <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">Apache Kafka</span>
+          <span class="skill-tag">Microservices</span>
         </div>
       </div>
       <div class="skill-group">
@@ -912,6 +917,29 @@ footer p span { color: var(--accent); }
     <p class="section-label">Selected projects</p>
     <h2 class="section-title">Things I've shipped.</h2>
     <div class="projects-grid">
+
+      <div class="project-card">
+        <a class="project-thumb" href="assets/projects/billflow-dashboard.jpg" target="_blank" rel="noopener">
+          <img src="assets/projects/billflow-dashboard.jpg" alt="BillFlow dashboard showing payment stats, revenue chart and recent transactions in dark mode" loading="lazy" width="1280" height="720">
+        </a>
+        <div class="project-left">
+          <h3 class="project-name">BillFlow — Microservices Billing System</h3>
+          <p class="project-desc">
+            4-service billing platform with Apache Kafka event-driven communication. Each service owns its own database — Laravel handles billing, FastAPI runs analytics, Node.js manages notifications. Automated invoice generation and full Docker containerization.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Laravel</span>
+            <span class="stack-tag">FastAPI</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">Vue 3</span>
+            <span class="stack-tag">Apache Kafka</span>
+            <span class="stack-tag">Docker</span>
+          </div>
+          <div class="project-links" style="margin-top:10px;display:flex;gap:12px;">
+            <a href="https://github.com/haseebmirza/bill-flow-micro" target="_blank" rel="noopener" style="font-size:.8rem;color:var(--text-2);text-decoration:none;font-family:'JetBrains Mono',monospace;">GitHub &nearr;</a>
+          </div>
+        </div>
+      </div>
 
       <div class="project-card">
         <a class="project-thumb" href="assets/projects/crm-sales.jpeg" target="_blank" rel="noopener">
@@ -1002,21 +1030,21 @@ footer p span { color: var(--accent); }
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-period">Jan 2025 — Present</p>
+          <p class="exp-period">Mar 2025 — Present</p>
           <p class="exp-location">Switzerland · Remote</p>
         </div>
         <div class="exp-right">
           <p class="exp-role">Backend Engineer</p>
           <p class="exp-company">Framers Group</p>
           <p class="exp-desc">
-            Building a fintech monitoring platform. Owns the <strong>multi-tenant core</strong> that scopes every tenant's data correctly, the queued monitoring layer running checks on schedule, and the 5-channel alert pipeline delivering via SMS (Twilio), email (SendGrid), Slack, Discord, and Zapier. TDD-first team, ships weekly.
+            Building a fintech monitoring and open-banking compliance platform. Owns the <strong>multi-tenant core</strong> that scopes every tenant's data correctly, the queued monitoring layer running checks on schedule, and the 5-channel alert pipeline delivering via SMS (Twilio), email (SendGrid), Slack, Discord, and Zapier. TDD-first team.
           </p>
         </div>
       </div>
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-period">Jan 2021 — Dec 2024</p>
+          <p class="exp-period">Jan 2021 — Feb 2025</p>
           <p class="exp-location">Pakistan</p>
         </div>
         <div class="exp-right">
