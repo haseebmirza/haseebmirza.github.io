@@ -941,83 +941,6 @@ footer p span { color: var(--accent); }
         </div>
       </div>
 
-      <div class="project-card">
-        <a class="project-thumb" href="assets/projects/crm-sales.jpeg" target="_blank" rel="noopener">
-          <img src="assets/projects/crm-sales.jpeg" alt="Sales CRM dashboard showing meeting counts, pipeline status tiles and meeting charts" loading="lazy" width="1280" height="853">
-        </a>
-        <div class="project-left">
-          <h3 class="project-name">Sales CRM with Calendly Sync</h3>
-          <p class="project-desc">
-            Replaced a spreadsheet ~20 sales reps weren't updating. Every rep's booking flows in automatically via HMAC-SHA256 signed webhooks, lands in a Redis queue, and hits the pipeline in under a second. Managers see the full picture; reps see only their own deals. Immutable audit trail on every change.
-          </p>
-          <div class="project-stack">
-            <span class="stack-tag">Laravel</span>
-            <span class="stack-tag">MySQL</span>
-            <span class="stack-tag">Redis</span>
-            <span class="stack-tag">Calendly API</span>
-            <span class="stack-tag">Spatie Permission</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <a class="project-thumb" href="assets/projects/rag-chatbot.jpeg" target="_blank" rel="noopener">
-          <img src="assets/projects/rag-chatbot.jpeg" alt="Real estate website with the Property Advisor chatbot widget answering a mortgage question" loading="lazy" width="1280" height="733">
-        </a>
-        <div class="project-left">
-          <h3 class="project-name">Real Estate RAG Chatbot</h3>
-          <p class="project-desc">
-            A white-label chatbot that answers property questions using only each agency's own documents — grounded retrieval, no hallucination, no generic AI responses. The AI provider (Gemini, OpenAI, Claude) swaps by config with zero code changes. Built as an embeddable widget with an admin panel.
-          </p>
-          <div class="project-stack">
-            <span class="stack-tag">Laravel</span>
-            <span class="stack-tag">PostgreSQL</span>
-            <span class="stack-tag">pgvector</span>
-            <span class="stack-tag">Google Gemini</span>
-            <span class="stack-tag">React</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <a class="project-thumb" href="assets/projects/alertbridge.png" target="_blank" rel="noopener">
-          <img src="assets/projects/alertbridge.png" alt="AlertBridge dashboard with webhook endpoint, sample curl and recent alerts sent to Slack and Discord" loading="lazy" width="1579" height="919">
-        </a>
-        <div class="project-left">
-          <h3 class="project-name">AlertBridge — Webhook Relay</h3>
-          <p class="project-desc">
-            One POST endpoint that fans out to Slack and Discord in parallel, fully isolated. If one channel fails, the other still fires. Built to fix the real problem: a broken integration silently dropping alerts with no trace.
-          </p>
-          <div class="project-stack">
-            <span class="stack-tag">Laravel</span>
-            <span class="stack-tag">PHP 8</span>
-            <span class="stack-tag">Slack API</span>
-            <span class="stack-tag">Discord API</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <a class="project-thumb" href="assets/projects/notes-api.jpg" target="_blank" rel="noopener">
-          <img src="assets/projects/notes-api.jpg" alt="Notes API landing page showing endpoints, quick start and features" loading="lazy" width="800" height="506">
-        </a>
-        <div class="project-left">
-          <h3 class="project-name">Notes API</h3>
-          <p class="project-desc">
-            REST API for managing notes with S3 file attachments. 8 endpoints covering CRUD, search, soft deletes, restore, and file uploads. Deployed on EC2 with MySQL on RDS and IAM-role-based S3 access — no access keys in the environment.
-          </p>
-          <div class="project-stack">
-            <span class="stack-tag">Laravel 13</span>
-            <span class="stack-tag">MySQL (RDS)</span>
-            <span class="stack-tag">AWS S3</span>
-            <span class="stack-tag">EC2</span>
-          </div>
-          <div class="project-links" style="margin-top:10px;display:flex;gap:12px;">
-            <a href="https://notes-api-dev.netlify.app/" target="_blank" rel="noopener" style="font-size:.8rem;color:var(--accent);text-decoration:none;font-family:'JetBrains Mono',monospace;">Live Docs &rarr;</a>
-            <a href="https://github.com/haseebmirza" target="_blank" rel="noopener" style="font-size:.8rem;color:var(--text-2);text-decoration:none;font-family:'JetBrains Mono',monospace;">GitHub &nearr;</a>
-          </div>
-        </div>
-      </div>
 
     </div>
   </section>
@@ -1037,7 +960,7 @@ footer p span { color: var(--accent); }
           <p class="exp-role">Backend Engineer</p>
           <p class="exp-company">Framers Group</p>
           <p class="exp-desc">
-            Building a fintech monitoring and open-banking compliance platform. Owns the <strong>multi-tenant core</strong> that scopes every tenant's data correctly, the queued monitoring layer running checks on schedule, and the 5-channel alert pipeline delivering via SMS (Twilio), email (SendGrid), Slack, Discord, and Zapier. TDD-first team.
+            Building a fintech monitoring and open-banking compliance platform. Built the <strong>multi-tenant data isolation layer</strong> using scoped Eloquent models, the <strong>5-channel alert engine</strong> (Twilio SMS, SendGrid, Slack, Discord, Zapier) on Redis queues with per-channel error isolation, and automated heartbeat monitoring with maintenance-window scheduling. TDD across all core workflows.
           </p>
         </div>
       </div>
@@ -1048,36 +971,24 @@ footer p span { color: var(--accent); }
           <p class="exp-location">Pakistan</p>
         </div>
         <div class="exp-right">
-          <p class="exp-role">Backend Engineer — Contract</p>
+          <p class="exp-role">Lead Backend Engineer</p>
           <p class="exp-company">Hiba Logics</p>
           <p class="exp-desc">
-            Built production backends for clients across real estate, logistics, and B2B software. Projects include a RAG chatbot, a sales CRM, an ERP, a shipping invoicing system, and payment integrations across five gateways (Stripe, PayPal, PayFast, MTN, Tazapay).
+            Led backend architecture and development across client engagements in real estate, logistics, and professional services. Built a RAG chatbot (PostgreSQL + pgvector), a sales CRM with Calendly webhook sync (HMAC-SHA256), and standardized payment pipelines across five gateways (Stripe, PayPal, PayFast, MTN, Tazapay).
           </p>
         </div>
       </div>
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-period">Jan 2020 — Dec 2020</p>
+          <p class="exp-period">Oct 2014 — Dec 2020</p>
           <p class="exp-location">Pakistan</p>
         </div>
         <div class="exp-right">
-          <p class="exp-role">Android Developer</p>
-          <p class="exp-company">The Urban Unit</p>
-          <p class="exp-desc">Field survey data-collection and domicile applications for Punjab government urban-planning programmes.</p>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <p class="exp-period">2014 — 2018</p>
-          <p class="exp-location">Pakistan</p>
-        </div>
-        <div class="exp-right">
-          <p class="exp-role">Android & Web Developer</p>
-          <p class="exp-company">Earlier roles</p>
+          <p class="exp-role">Android Developer & Software Engineer</p>
+          <p class="exp-company">Earlier Roles</p>
           <p class="exp-desc">
-            Fleet-tracking Android app with live GPS at Fits4 (2017–18). Android apps at BitSol and Bitsparx (2016). PHP/Django web at Bashsol (2015–16). Software engineering at Lever Systems (2014–15).
+            The Urban Unit (2020) · Fits4 Private Limited (2017–18) · BitSol Technologies (2016–17) · Bashsol (2015–16) · Lever Systems (2014–15). Built GIS data-collection apps with offline-first sync, Android client apps with REST API integration, and internal web applications using PHP and Laravel.
           </p>
         </div>
       </div>

@@ -264,10 +264,6 @@
         <a href="mailto:haseeb.a.mirza@gmail.com">haseeb.a.mirza@gmail.com</a>
       </span>
       <span class="contact-item">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        <a href="https://haseebmirza.github.io">haseebmirza.github.io</a>
-      </span>
-      <span class="contact-item">
         <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
         <a href="https://linkedin.com/in/haseeb-ahmad-mirza">linkedin.com/in/haseeb-ahmad-mirza</a>
       </span>
@@ -280,14 +276,14 @@
 
   <section class="section">
     <h2 class="section-heading">Summary</h2>
-    <p class="summary-text">Backend engineer specialising in Laravel and PHP, currently building a fintech monitoring and open-banking compliance platform for a Swiss company. Day-to-day work covers multi-tenant SaaS architecture, queued background processing, webhook integrations, REST APIs and role-based access control, shipped with Test-Driven Development.</p>
+    <p class="summary-text">Backend engineer specialising in Laravel and PHP, currently building a fintech monitoring and open-banking compliance platform for a Swiss company. Multi-tenant SaaS architecture, queued background processing, webhook integrations, REST APIs, role-based access control — shipped with Test-Driven Development.</p>
   </section>
 
   <section class="section">
     <h2 class="section-heading">Skills</h2>
     <div class="skills-grid">
-      <span>Laravel (10–13)</span>
-      <span>PHP 8</span>
+      <span>Laravel</span>
+      <span>PHP 8.3</span>
       <span>REST API Design</span>
       <span>Multi-tenancy</span>
       <span>PostgreSQL</span>
@@ -313,6 +309,9 @@
       <span>Node.js</span>
       <span>Apache Kafka</span>
       <span>Microservices</span>
+      <span>Laravel Queues</span>
+      <span>Database Migrations</span>
+      <span>API Versioning</span>
       <span>Tailwind CSS</span>
       <span>OpenAPI</span>
     </div>
@@ -326,25 +325,28 @@
         <span class="role-title">Backend Engineer - <a href="https://framersgroup.com" class="role-company" target="_blank" rel="noopener">Framers Group</a></span>
         <span class="role-dates">March 2025 - Present (Switzerland, Remote)</span>
       </div>
-      <div class="role-descriptor">Swiss software company building a fintech monitoring and open-banking compliance platform.</div>
+      <div class="role-descriptor">Fintech monitoring and open-banking compliance platform.</div>
       <ul>
-        <li>Built multi-tenant architecture scoping all tenant data within a shared database.</li>
-        <li>Built a 5-channel alert pipeline: SMS (Twilio), email (SendGrid), Slack, Discord and Zapier.</li>
-        <li>Implemented incident tracking, maintenance windows and heartbeat monitoring.</li>
-        <li>Extending the platform into open-banking compliance checking and evidence collection.</li>
+        <li>Built a multi-tenant data isolation layer using scoped Eloquent models and global query filters, ensuring safe tenant data segregation in a shared database.</li>
+        <li>Developed an asynchronous 5-channel alert engine (Twilio SMS, SendGrid, Slack, Discord, Zapier) using Redis queues, with per-channel error isolation to prevent blocked notification delivery.</li>
+        <li>Set up automated heartbeat checks, endpoint monitoring, and maintenance-window scheduling to track external service availability.</li>
+        <li>Built compliance verification features and audit-log collection pipelines for open-banking requirements.</li>
+        <li>Maintained test coverage using TDD (PHPUnit) across core billing, alert delivery, and webhook workflows.</li>
       </ul>
     </div>
 
     <div class="role">
       <div class="role-line-1">
-        <span class="role-title">Backend Engineer — Contract - <span class="role-company">Hiba Logics</span></span>
+        <span class="role-title">Lead Backend Engineer - <span class="role-company">Hiba Logics</span></span>
         <span class="role-dates">January 2021 - February 2025 (Pakistan)</span>
       </div>
-      <div class="role-descriptor">Software consultancy delivering backend systems for clients in real estate, engineering consultancy, logistics and B2B sales.</div>
+      <div class="role-descriptor">B2B software consultancy delivering backend platforms for clients in real estate, logistics, and professional services.</div>
       <ul>
-        <li>Built a sales CRM for ~20 reps with Calendly webhook sync (HMAC-SHA256), RBAC and audit trail.</li>
-        <li>Designed a 3-step chatbot that checks knowledge base and pattern matching first, calling the LLM only as a last resort.</li>
-        <li>Integrated payment gateways (Stripe, PayPal, PayFast, MTN, Tazapay) across multiple client projects.</li>
+        <li>Led backend architecture, data modeling, and development across client engagements in real estate, logistics, and professional services.</li>
+        <li>Standardized payment integration pipelines (Stripe, PayPal, PayFast, Tazapay) with webhook reconciliation and idempotency controls.</li>
+        <li>Built a multi-tier RAG chatbot using rule-based pattern matching and vector similarity (PostgreSQL + pgvector) before routing to external LLMs, reducing API token consumption.</li>
+        <li>Engineered a sales CRM with Calendly webhook sync (HMAC-SHA256), role-based access control, and immutable audit logs.</li>
+        <li>Conducted code reviews and established automated testing practices (PHPUnit) across projects.</li>
       </ul>
     </div>
 
@@ -353,7 +355,12 @@
         <span class="role-title">Earlier Roles</span>
         <span class="role-dates">October 2014 - December 2020</span>
       </div>
-      <div class="earlier-list">Android Developer, <span class="role-company">The Urban Unit</span> (2020) · Android Developer, <span class="role-company">Fits4 Private Limited</span> (2017–2018) · Android Developer, <span class="role-company">BitSol Technologies</span> (2016–2017) · Web Developer, <span class="role-company">Bashsol</span> (2015–2016) · Software Engineer, <span class="role-company">Lever Systems</span> (2014–2015).</div>
+      <div class="role-descriptor">Android Developer & Software Engineer at <span class="role-company">The Urban Unit</span>, <span class="role-company">Fits4 Private Limited</span>, <span class="role-company">BitSol Technologies</span>, <span class="role-company">Bashsol</span>, <span class="role-company">Lever Systems</span>.</div>
+      <ul>
+        <li>Built enterprise GIS data-collection apps with offline-first SQLite sync for field teams.</li>
+        <li>Developed Android client applications and integrated them with backend REST APIs.</li>
+        <li>Built internal web applications and admin panels using PHP and Laravel.</li>
+      </ul>
     </div>
   </section>
 
@@ -366,23 +373,6 @@
       <div class="project-stack">Laravel, FastAPI, Node.js, Vue 3, Kafka, Docker, MariaDB, PostgreSQL</div>
     </div>
 
-    <div class="project">
-      <div class="project-name">Notes API — <a href="https://notes-api-dev.netlify.app/" target="_blank" rel="noopener" class="project-link">notes-api-dev.netlify.app</a></div>
-      <div class="project-desc">REST API with S3 file uploads, soft deletes, and paginated search. Deployed on EC2 with MySQL on RDS and IAM-role-based S3 access — no access keys in the environment.</div>
-      <div class="project-stack">Laravel 13, MySQL (RDS), AWS S3, EC2</div>
-    </div>
-
-    <div class="project">
-      <div class="project-name">Real Estate RAG Chatbot</div>
-      <div class="project-desc">Multi-tenant white-label chatbot that answers property questions using only each agency's own documents. Retrieval over PostgreSQL + pgvector; AI provider swappable by config. Built as an embeddable widget with an admin panel.</div>
-      <div class="project-stack">Laravel, PostgreSQL, pgvector, Google Gemini, React</div>
-    </div>
-
-    <div class="project">
-      <div class="project-name">AlertBridge — Webhook Relay</div>
-      <div class="project-desc">Single-endpoint relay that sends alerts to Slack and Discord in parallel, with isolated per-channel error handling so one channel's failure cannot block the other.</div>
-      <div class="project-stack">Laravel, PHP 8, Slack and Discord webhooks</div>
-    </div>
   </section>
 
   <section class="section">
